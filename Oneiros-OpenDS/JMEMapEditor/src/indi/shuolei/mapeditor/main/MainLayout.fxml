@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--AnchorPane xmlns:fx="http://javafx.com/fxml/1"-->
+<!-- TODO Add Nodes -->
+<!--/AnchorPane-->
+
+<BorderPane prefHeight="850.0" prefWidth="1286.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="indi.shuolei.mapeditor.main.MainController">
+   
+   
+   <top>
+      <HBox prefHeight="30.0" prefWidth="1286.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar prefHeight="29.0" prefWidth="260.0" style="-fx-background-color: #F4F4F4;" HBox.hgrow="ALWAYS">
+              <menus>
+                
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#onNewMapAction" text="New">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#onButtonClick" text="Open">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#onButtonClick" text="Save">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#onButtonClick" text="Save as...">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#onButtonClick" text="Export">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <Menu fx:id="mRecentMenu" mnemonicParsing="false" text="Open Recent Files" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#onButtonClick" text="Quit" />
+                  </items>
+                </Menu>
+                
+                <Menu mnemonicParsing="false" text="Settings">
+                  <items>
+                        <Menu mnemonicParsing="false" text="Brush Settings">
+                          <items>
+                              
+                            <RadioMenuItem fx:id="rectItem" mnemonicParsing="false" onAction="#onButtonClick" text="Rectangle Brush" />
+                          </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Display Settings">
+                          <items>
+                              <CheckMenuItem fx:id="showMapGridItem" mnemonicParsing="false" selected="true" text="Display Map Grid" />
+                              <CheckMenuItem fx:id="showAltasGridItem" mnemonicParsing="false" selected="true" text="Display Altas Grid" />
+                              <CheckMenuItem fx:id="showPropertyGridItem" mnemonicParsing="false" selected="true" text="Display Property Grid" />
+                          </items>
+                        </Menu>
+                  </items>
+                </Menu>
+                
+                <Menu mnemonicParsing="false" text="Export">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#onButtonClick" text="Export" />
+                  </items>
+                </Menu>
+                
+                <Menu mnemonicParsing="false" text="Preview">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#onButtonClick" text="About" />
+                  </items>
+                </Menu>
+              
+                </menus>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </MenuBar>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+   </top>
+   
+   
+   
+   <left>
+      <VBox fillWidth="false" minWidth="-Infinity" prefHeight="770.0" prefWidth="158.0" BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane alignment="CENTER" animated="false" collapsible="false" minWidth="-Infinity" prefHeight="820.0" prefWidth="158.0" text="Model">
+              <content>
+                <AnchorPane minWidth="-Infinity" prefHeight="792.0" prefWidth="156.0">
+                     <children>
+                        <MenuButton alignment="CENTER" contentDisplay="CENTER" layoutX="20.4" layoutY="14.4" mnemonicParsing="false" prefHeight="65.0" prefWidth="145.2" text="Traffic Light" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Parking Lot" />
+                           </items>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </MenuButton>
+                        <MenuButton alignment="CENTER" contentDisplay="CENTER" layoutX="5.4" layoutY="95.4" mnemonicParsing="false" prefHeight="65.0" prefWidth="145.2" text="Traffic Sign" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="75.0">
+                          <items>
+						      <Menu fx:id="Speed_Limit_40" text="Speed Limit 40">
+   <items>
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickTS40_h" text="North Direction" />
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickTS40_h" text="South Direction" />
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickTS40_v" text="West Direction" />
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickTS40_v" text="East Direction" />
+   </items>
+						      </Menu>
+						      <Menu fx:id="Speed_Limit_50" text="Speed Limit 50">
+   <items>
+   								<MenuItem mnemonicParsing="false" onAction="#onClickTS50_h" text="North Direction" />
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickTS50_h" text="South Direction" />
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickTS50_v" text="West Direction" />
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickTS50_v" text="East Direction" />
+   </items>
+						      </Menu>
+                          </items>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </MenuButton>
+                        <MenuButton alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="204.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="145.2" text="Road" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="150.0">
+                          <items>
+						      <Menu fx:id="one_way_two_lane" text="One-way Two-lane">
+   <items>
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickTreeAction11_h" text="Horizontal Road" />
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickTreeAction11_v" text="Vertical Road" />
+   </items>
+						      </Menu>
+						      <Menu fx:id="two_way_two_lane" text="Two-way Two-lane">
+   <items>
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickTreeAction22" text="Horizontal Road" />
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickTreeAction22" text="Vertical Road" />
+   </items>
+						      </Menu>
+						      <Menu fx:id="two_way_four_lane" text="One-way One-lane">
+   <items>
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickTreeAction26" text="Horizontal Road" />
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickTreeAction26" text="Vertical Road" />
+   </items>
+						      </Menu>
+						      <SeparatorMenuItem mnemonicParsing="false" />
+						      <Menu fx:id="Crossroad" text="Crossroad">
+   <items>
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickCrossroadAction01" text="One-way Two-lane" />
+   						        <MenuItem mnemonicParsing="false" onAction="#onClickCrossroadAction01" text="Two-way Two-lane" />
+   </items>
+						      </Menu>
+                          </items>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </MenuButton>
+                  	</children>
+                  </AnchorPane>
+               </content>
+               <font>
+                  <Font size="15.0" />
+               </font> 
+            </TitledPane>
+         </children>
+      </VBox>
+   </left>
+   
+   
+   
+   <center>
+    <VBox prefHeight="770.0" prefWidth="970.0" BorderPane.alignment="CENTER">
+         <children>
+            
+            <TitledPane alignment="CENTER" animated="false" collapsible="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="970.0" text="Map Canvas">
+               <content>
+                  <ScrollPane fx:id="mapScrollPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="968.0" />
+               </content>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TitledPane>
+            
+            <ToolBar minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="970.0">
+               <items>
+                  <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="948.0" spacing="3">
+                     <children>
+                        
+                        <Label prefHeight="30.0" prefWidth="100.0" text="Map Size:">
+                           <HBox.margin>
+                              <Insets left="160.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font></Label>
+                        <Label fx:id="mapSizeLabel" prefHeight="30.0" prefWidth="160.0" text="No Map" textFill="#e00000">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Label>
+                        <Label prefHeight="30.0" prefWidth="140.0" text="Current Position:">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nowMousePositionLabel" prefHeight="30.0" prefWidth="130.0" text="0 , 0" textFill="#eb0b0b">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Label>
+                        
+                        <Label prefHeight="30.0" prefWidth="130.0" text="Scaling Ratio:">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Label>
+                        
+                        <Slider fx:id="scaleRatio" blockIncrement="0.1" max="5.0" prefHeight="30.0" prefWidth="180.0" value="1.0" />
+                        
+                        <Label fx:id="mScaleLabel" prefHeight="30.0" prefWidth="70.0" text="1.0">
+                           <HBox.margin>
+                              <Insets right="70.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        
+                     </children>
+                  </HBox>
+               </items>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </ToolBar>
+            
+         </children>
+      </VBox>
+   </center>
+   
+   
+   
+   <right>
+      <VBox fillWidth="false" minWidth="158.0" prefHeight="820.0" prefWidth="158.0" BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane alignment="CENTER" animated="false" collapsible="false" minWidth="158.0" prefHeight="240.0" prefWidth="158.0" text="Layer Setting">
+              <content>
+                <AnchorPane minWidth="156.0" prefHeight="212.0" prefWidth="156.0">
+                     <children>
+                        <Button contentDisplay="CENTER" layoutX="86.0" layoutY="47.0" onAction="#onLayerUpAction" prefHeight="30.0" prefWidth="65.0" text="Up" textAlignment="CENTER" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Button>
+                        <Button contentDisplay="CENTER" layoutX="77.4" layoutY="176.4" onAction="#onLayerDownAction" prefHeight="30.0" prefWidth="65.0" text="Down" textAlignment="CENTER" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="40.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Button>
+                        <Button contentDisplay="CENTER" layoutX="30.4" layoutY="30.4" onAction="#onAddNewLayerAction" prefHeight="30.0" prefWidth="65.0" text="New" textAlignment="CENTER" AnchorPane.leftAnchor="-3.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Button>
+                        <Button contentDisplay="CENTER" layoutX="20.4" layoutY="55.4" onAction="#onDeleteLayerAction" prefHeight="30.0" prefWidth="65.0" text="Delete" textAlignment="CENTER" AnchorPane.leftAnchor="-3.0" AnchorPane.topAnchor="40.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Button>
+                        <Label layoutX="50.0" layoutY="85.0" prefHeight="20.0" prefWidth="55.0" text="Opacity:" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="80.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Label>
+                        <Slider fx:id="layerAlphaSlider" blockIncrement="0.05" layoutX="6.0" layoutY="96.0" max="1.0" prefHeight="16.0" prefWidth="140.0" value="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0" />
+                        <CheckBox fx:id="layerShowCheck" layoutX="50.0" layoutY="164.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="89.0" selected="true" text=" Display" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="130.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font></CheckBox>
+                        <CheckBox fx:id="layerColliderCheck" layoutX="54.0" layoutY="199.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="89.0" text="Collision" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="165.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font></CheckBox> 
+                     </children>
+                  </AnchorPane>
+               </content>
+               <font>
+                  <Font size="15.0" />
+               </font> 
+            </TitledPane>
+            <TitledPane alignment="CENTER" animated="false" collapsible="false" minWidth="158.0" prefHeight="580.0" prefWidth="158.0" text="Layer">
+               <content>
+                  <AnchorPane minWidth="156.0" prefHeight="550.0" prefWidth="156.0">
+                     <children>
+                        <ListView fx:id="layerListView" prefHeight="526.0" prefWidth="156.0" />
+                     </children></AnchorPane>
+               </content>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TitledPane>
+         </children>
+      </VBox>
+   </right>
+
+   
+   
+   
+   
+   
+   
+</BorderPane>
