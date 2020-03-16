@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.ToDoubleBiFunction;
 
+import indi.shuolei.mapeditor.substage.PropertyDialog;
+
 import indi.shuolei.mapeditor.instance.Layer;
 
 import indi.shuolei.mapeditor.fileeditor.codeGeneration;
@@ -41,9 +43,12 @@ public class SceneCanvas extends Canvas {
 	
 	private boolean isShowGrid = true;
 	private boolean isDrawAltasList = true;
+	private int nowPropertyCols = 0, nowPropertyRows = 0; //need modify the variables names
 	
 	private SimpleIntegerProperty clickTree = new SimpleIntegerProperty(0);
 	public int index = 0;
+	
+	private PropertyDialog mPropertyDialog = new PropertyDialog();
 	
 	public SceneCanvas(double width, double height) {
 		super(width, height);
@@ -60,6 +65,10 @@ public class SceneCanvas extends Canvas {
 		
 		final ContextMenu contextMenu = new ContextMenu();
 		MenuItem propertyItem = new MenuItem("属性");
+		propertyItem.setOnAction(e -> {
+			mPropertyDialog.showDialog();
+		});
+		contextMenu.getItems().add(propertyItem);
 		
 		
 		setOnMouseMoved(e -> {
@@ -77,6 +86,11 @@ public class SceneCanvas extends Canvas {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+			}//new added, need correct
+			if (e.getButton() == MouseButton.SECONDARY) {
+				nowPropertyCols = (int) (e.getX() / (tileWidth * getScale()));
+				nowPropertyRows = (int) (e.getY() / (tileHeight * getScale()));
+				contextMenu.show(SceneCanvas.this, e.getScreenX(), e.getScreenY());
 			}
 		});
 		setOnMouseReleased(e -> {
