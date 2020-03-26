@@ -6,30 +6,112 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="267.0" prefWidth="334.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <TitledPane fx:id="mTitledPane" animated="false" collapsible="false" prefHeight="267.0" prefWidth="334.0" text="属性列表" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250" prefWidth="300" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+    	<TitledPane animated="true" collapsible="false" prefHeight="250" prefWidth="300" text="Setting List">
+         
+        	<content>
+         		<GridPane prefHeight="225.0" prefWidth="298.0" vgap="4.0">
+            		<columnConstraints>
+                		<ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="83.0" prefWidth="113.0" />
+	                	<ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="125.0" prefWidth="155.0" />
+	              	</columnConstraints>
+	              	<rowConstraints>
+	                	<RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+	                	<RowConstraints maxHeight="54.7196044921875" minHeight="50.0" prefHeight="54.7196044921875" vgrow="SOMETIMES" />
+	                	<RowConstraints maxHeight="45.0" minHeight="40.2803955078125" prefHeight="40.2803955078125" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+	              	</rowConstraints>
+	               	<children>
+	                	<Label prefHeight="17.0" prefWidth="96.0" text="Relative Position: " textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets top="-15.0" />
+                     </GridPane.margin></Label>
+	                  	<Label prefHeight="20.0" prefWidth="53.0" text="Direction:" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+	  
+	                  	<TextField fx:id="mapWidth" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+	                     	<GridPane.margin>
+	                        	<Insets left="8.0" right="108.0" top="4.0" />
+	                     	</GridPane.margin>
+	                  	</TextField>
+	                  	<TextField fx:id="mapHeight" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+	                     	<GridPane.margin>
+	                        	<Insets left="108.0" right="8.0" top="4.0" />
+	                     	</GridPane.margin>
+	                  	</TextField>
+                  <Label prefHeight="17.0" prefWidth="9.0" text="x " GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+                     <GridPane.margin>
+                        <Insets left="24.0" top="-14.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label prefHeight="20.0" prefWidth="34.0" text="Scale:" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets top="17.0" />
+                     </GridPane.margin></Label>
+                  <TextField fx:id="mapWidth1" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                     <GridPane.margin>
+                        <Insets left="58.0" right="58.0" top="4.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label prefHeight="17.0" prefWidth="9.0" text="z" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+                     <GridPane.margin>
+                        <Insets right="24.0" top="-14.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="9.0" text="y" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                     <GridPane.margin>
+                        <Insets top="-14.0" />
+                     </GridPane.margin></Label>
+                  <TextField fx:id="mapWidth2" alignment="CENTER" prefHeight="29.0" prefWidth="56.0" text="1.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets left="50.0" right="50.0" top="17.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <CheckBox mnemonicParsing="false" prefHeight="16.0" prefWidth="30.0" text="E" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="22.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" prefWidth="30.0" text="S" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" prefWidth="30.0" selected="true" text="N" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" prefWidth="30.0" text="W" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="22.0" />
+                     </GridPane.margin>
+                  </CheckBox>
+                  <Button mnemonicParsing="true"  prefHeight="29.0" prefWidth="80.0" text="OK" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets top="24.0" />
+                     </GridPane.margin></Button>
+	                  
+	                  
+	               	</children>
+               
+            	</GridPane>
+        	</content>
          <font>
-            <Font name="Microsoft YaHei Bold" size="17.0" />
+            <Font size="17.0" />
          </font>
-         <content>
-            <VBox maxWidth="-Infinity" prefHeight="231.0" prefWidth="349.0">
-               <children>
-                  <TableView fx:id="mPropertyTable" editable="true" prefHeight="249.0" prefWidth="332.0" />
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#onOkDialogAction" prefHeight="27.0" prefWidth="76.0" text="确定" />
-                        <Button mnemonicParsing="false" onAction="#onAddPropertyAction" prefHeight="27.0" prefWidth="76.0" text="添加" />
-                        <Button mnemonicParsing="false" onAction="#onDeletePropertyAction" prefHeight="27.0" prefWidth="76.0" text="删除" />
-                        <Button mnemonicParsing="false" onAction="#onCancelDialogAction" prefHeight="27.0" prefWidth="76.0" text="取消" />
-                     </children>
-                  </HBox>
-               </children>
-               <padding>
-                  <Insets bottom="0.1" left="0.1" right="0.1" />
-               </padding>
-            </VBox>
-         </content>
-      </TitledPane>
-   </children>
+    	</TitledPane>
+	</children>
 </fx:root>

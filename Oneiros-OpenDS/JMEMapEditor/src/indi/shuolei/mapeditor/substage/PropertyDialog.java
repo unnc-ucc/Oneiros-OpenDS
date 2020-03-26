@@ -46,44 +46,7 @@ public class PropertyDialog extends AnchorPane {
 			propertyDialog = new Stage(StageStyle.TRANSPARENT);
 			propertyDialog.setResizable(false);
 			propertyDialog.setScene(new Scene(this));
-			TableColumn<PropertyData, String> keyColumn = new TableColumn<>("键");
-			keyColumn.setMinWidth(164);
-			keyColumn.setMaxWidth(164);
-			keyColumn.setCellValueFactory(new PropertyValueFactory<>("key"));
-			keyColumn.setCellFactory(TextFieldTableCell.<PropertyData> forTableColumn());
-			keyColumn.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<PropertyData, String>>() {
 
-				@Override
-				public void handle(CellEditEvent<PropertyData, String> event) {
-					((PropertyData) event.getTableView().getItems().get(event.getTablePosition().getRow()))
-							.setKey(event.getNewValue());
-				}
-			});
-			TableColumn<PropertyData, String> valueColumn = new TableColumn<>("值");
-			valueColumn.setMinWidth(164);
-			valueColumn.setMaxWidth(164);
-			valueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
-			valueColumn.setCellFactory(TextFieldTableCell.<PropertyData> forTableColumn());
-			valueColumn.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<PropertyData, String>>() {
-
-				@Override
-				public void handle(CellEditEvent<PropertyData, String> event) {
-					((PropertyData) event.getTableView().getItems().get(event.getTablePosition().getRow()))
-							.setValue(event.getNewValue());
-				}
-			});
-
-			mPropertyTable.setItems(propertyDatas);
-			mPropertyTable.getColumns().addAll(keyColumn, valueColumn);
-			mPropertyTable.setEditable(true);
-			if (onPropertyDialogActionListener != null) {
-				onPropertyDialogActionListener.onInit(propertyDatas,mTitledPane);
-			}
-			propertyDialog.show();
-		} else {
-			if (onPropertyDialogActionListener != null) {
-				onPropertyDialogActionListener.onInit(propertyDatas,mTitledPane);
-			}
 			propertyDialog.show();
 		}
 	}
