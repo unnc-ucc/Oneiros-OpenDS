@@ -5,9 +5,9 @@ Full paper is accepted by HCII'22 and the preprint version is accessible at [her
 ## Motivation
 Motivated by the inefficiency for the developments of complicated driving scenes, Oneiros aims to:
 
-Provide a toolkit for more efficient and agile developments of complicated driving scenes
+(1) Provide a toolkit for more efficient and agile developments of complicated driving scenes
 
-Ensure designers can independently undertake most implementations of driving scenes via a toolkit
+(2) Ensure designers can independently undertake most implementations of driving scenes via a to()olkit
 
 Therefore: we derive two key requirements of such a toolkit: 
 
@@ -19,12 +19,17 @@ Therefore: we derive two key requirements of such a toolkit:
 
 
 ## Implementation Details
+Oneiros is implemented in JAVA (the same language as OpenDS). It use MVC design pattern and provide preview and code generation functions.
 
 
+## User Study
+We recruit 11 participants by advertising our study via internal emails, among all students (i.e. 36) involving driving-scene designs previously in our lab. The result is as follows:
 
-## Experiment Result
+**Efficiency Improvements - in terms of Time**(./resource/new-result2d.png)
+First, there are 9 participants who save at least 32% time by using Oneiros, compared with the conventional approach. Second, 1 participant saves up to 69% time by using Oneiros. Third, 2 participants only save 5% and 11% time by Oneiros. This is because these two participants are cold-start in using Oneiros, without sufficient practices.
 
-
+**User Experiences - in terms of Functionality, Interactivity and Convenience**(./resource/new-result2e.png)
+For Functionality, 1 participant thinks the functionality of Oneiros tool is good enough, 7 participants think is good, and 3 participants think the functionality is neutral; for Interactivity, all participants consider Oneiros is much more interactive than the conventional approach: 9 of them particularly enjoy the interactivity of Oneiros; for Convenience, 4 participants think using Oneiros is much more convenient than the conventional approach, and 7 participants think Oneiros is more convenient.
 
 
 **Code Contributor**
